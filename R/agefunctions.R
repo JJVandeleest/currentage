@@ -1,25 +1,22 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
 
-
-
+# This function is internal only and extracts the current year from the system.
 currentyear <- function(){
        year <- as.numeric(format(Sys.Date(),"%Y"))
 }
 
-currentage <- function(birthyear) {
+
+#' A Current Age Function
+#'
+#' This function calculates a current age in years when given a birth year.
+#' @param birthyear A four digit number indicating a year of birth? 
+#' @return Current age in years
+#' @keywords age
+#' @export
+#' @examples 
+#' # Calculate the age of someone born in 1980
+#' currentage(1980)
+#' 
+currentage <- function(birthyear = currentyear) {
       now <- currentyear()
       age <- now - birthyear
       if (age > 110) {
