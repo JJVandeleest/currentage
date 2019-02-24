@@ -24,14 +24,12 @@ currentage <- function(birthyear = currentyear, birthday = TRUE) {
              age <- age-1
       }
       if (age > 110) {
-             print(age)
-             message("You are probably dead, verify your birthyear")
+             message("You are probably dead, verify your birth year")
       } else if (age < 0) {
-             print(age)
-             message("You don't exist, try again")
-      } else {
-             age
-      }
+             message("Invalid age, check the birth year")
+      } 
+      
+      return(age)
 
 }
 
