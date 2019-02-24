@@ -9,6 +9,7 @@ currentyear <- function(){
 #'
 #' This function calculates a current age in years when given a birth year.
 #' @param birthyear A four digit number indicating a year of birth? 
+#' @param birthday Have you had your birthday yet this year?  Default is TRUE.
 #' @return Current age in years
 #' @keywords age
 #' @export
@@ -16,13 +17,18 @@ currentyear <- function(){
 #' # Calculate the age of someone born in 1980
 #' currentage(1980)
 #' 
-currentage <- function(birthyear = currentyear) {
+currentage <- function(birthyear = currentyear, birthday = TRUE) {
       now <- currentyear()
       age <- now - birthyear
+      if (birthday == FALSE) {
+             age <- age-1
+      }
       if (age > 110) {
-             print("You are probably dead, verify your birthyear")
+             print(age)
+             message("You are probably dead, verify your birthyear")
       } else if (age < 0) {
-             print ("You don't exist, try again")
+             print(age)
+             message("You don't exist, try again")
       } else {
              age
       }
